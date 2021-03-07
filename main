@@ -1,0 +1,32 @@
+#include<iostream>
+#include "EMR.h"
+#include <locale.h>
+
+
+int main() {
+	setlocale(LC_ALL, "Turkish");
+	EMRG Kyt;
+	static std::vector<EMRG>Storage(0,Kyt);
+	int x;
+	do {
+		Kyt.DisplayMessage();
+
+		std::cin >> x;
+		switch (x) {
+
+		case 1:
+			Kyt.TakeInfos();
+			Storage.push_back(Kyt); break;
+		case 2:
+			 break;
+		case 3:
+			for (auto& x : Storage)
+				std::cout << x.getName() << x.getSurname() << std::endl;
+		default:
+			std::cout << "hata" << std::endl; break;
+		}
+
+	} while (true);
+	
+    return 0;
+}
